@@ -1,12 +1,35 @@
 {% extends 'usuarios/base.html' %}
 {% block conteudo %}
-<form action="{% url 'listagem_usuarios' %}" method="post">
+<form action="{% url 'salvar' %}" method="POST">
     {% csrf_token %}
     <div style="text-align: center;" class="container">
-        <h1>Cadastro de Usuários</h1>
+        <h1>Cadastro de Usuário</h1>
         Nome <input name="nome" class="form-control-sm" type="text">
         Idade <input name="idade" class="form-control-sm" type="text">
-        <button class="form-control-sm">Enviar</button>
+        <button class="form-control-sm">Salvar</button>
     </div>
 </form>
+<div class="container">
+    <h1 style="text-align: center;">Usuários Cadastrados</h1>
+    <h2>
+    </h2>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>idade</th>
+        </tr>
+        {% for usuario in usuarios %}
+            <tr>
+                <td>{{usuario.id}}</td>
+                <td>{{usuario.nome}}</td>
+                <td>{{usuario.idade}}</td>
+                <td>
+                    <a href="{% url 'atualizar' usuario.id %}">Editar</a>
+                    <a href="{% url 'delete' usuario.id %}">Deletar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
  {% endblock %}

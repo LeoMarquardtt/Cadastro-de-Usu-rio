@@ -1,17 +1,33 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Usuario
-def home(request):
-    return render(request,'usuarios/home.html')
 
-def usuarios(request):
-    #Salvar os dados do site para o bd
-    novo_usuario = Usuario()
-    novo_usuario.nome = request.POST.get('nome')
-    novo_usuario.idade = request.POST.get('idade')
-    novo_usuario.save()
-    #Exibir
-    usuarios = {
-        'usuarios' : Usuario.objects.all()
-    }
-    #Retorno dos dados
-    return render(request,'usuarios/usuarios.html',usuarios)
+
+def home(request):
+    usuarios = Usuario.objects.all()
+    return render(request,'usuarios/home.html', {"usuarios" : usuarios})
+
+
+def salvar(request):
+    vnome = request.POST.get("nome")
+    vidade = request.POST.get("idade")
+    Usuario.objects.create(nome=vnome, idade=vidade)
+    usuarios = Usuario.objects.all()
+    return redirect('home')
+
+def atualizar(request, id):
+    usuario = Usuario.objects.get(id=id)
+    return render(request, "usuarios/update.html", {"usuario" : usuario} )
+
+def update(request, id):
+    nome = request.POST.get("nome")
+    idade = request.POST.get("idade")
+    usuario = Usuario.objects.get(id = id)
+    usuario.nome = nome
+    usuario.idade = idade
+    usuario.save()
+    return redirect('home')
+
+def delete(request, id):
+    usuario = Usuario.objects.get(id = id)
+    usuario.delete()
+    return redirect('home')
