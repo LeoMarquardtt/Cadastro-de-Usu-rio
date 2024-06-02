@@ -1,4 +1,4 @@
-.db.sqlite3
+db.sqlite3
 app_cad_usuarios/__pycache__/
 projeto_cad_usuarios/__pycache__/
 __pycache__/
