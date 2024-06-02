@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>README - Projeto de Cadastro de Usuários</title>
+    README - Projeto de Cadastro de Usuários
 </head>
 <body>
     <div class="container">
