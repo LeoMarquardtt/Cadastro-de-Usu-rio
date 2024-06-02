@@ -7,7 +7,7 @@
 <body>
     <div class="container">
         <h1>Projeto de Cadastro de Usuários</h1>
-        <p>Bem-vindo ao projeto de cadastro de usuários! Este projeto foi desenvolvido utilizando o Django, um framework de alto nível para desenvolvimento web em Python. Siga as instruções abaixo para configurar e executar o projeto localmente.</p>
+        <p>Bem-vindo ao projeto de cadastro de usuários. Este projeto foi desenvolvido utilizando o Django, um framework de alto nível para desenvolvimento web em Python. Siga as instruções abaixo para configurar e executar o projeto localmente.</p>
         <h2>Comandos para o programa funcionar:</h2>
         <ol>
             <li><code>pip install django</code> (instalar o django)</li>
